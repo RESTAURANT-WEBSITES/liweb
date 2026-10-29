@@ -84,7 +84,8 @@ export function SkeletonSite({
       <div className="mt-1 h-1.5 w-4/5 rounded-full bg-black/10" />
       <div className="h-1.5 w-3/5 rounded-full bg-black/10" />
       <div className="mt-1 h-5 w-14 rounded-full" style={{ background: accent }} />
-      <div className="mt-auto grid grid-cols-3 gap-1.5 pb-1">
+      <div className="mt-1 flex-1 rounded-lg bg-cream" />
+      <div className="grid grid-cols-3 gap-1.5 pb-1">
         {Array.from({ length: rows }).map((_, i) => (
           <span key={i} className="h-8 rounded-md bg-muted" />
         ))}
