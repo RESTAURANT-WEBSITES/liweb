@@ -152,17 +152,15 @@ export function AnimatedBackground() {
 
     const drawLinks = () => {
       buckets.clear();
-      for (let i = 0; i < particles.length; i++) {
+      for (const [i, p] of particles.entries()) {
         const key =
-          Math.floor(particles[i].x / GRID) * 4096 +
-          Math.floor(particles[i].y / GRID);
+          Math.floor(p.x / GRID) * 4096 + Math.floor(p.y / GRID);
         const list = buckets.get(key);
         if (list) list.push(i);
         else buckets.set(key, [i]);
       }
       ctx.lineWidth = 1;
-      for (let i = 0; i < particles.length; i++) {
-        const a = particles[i];
+      for (const [i, a] of particles.entries()) {
         const bx = Math.floor(a.x / GRID);
         const by = Math.floor(a.y / GRID);
         for (let gx = bx - 1; gx <= bx + 1; gx++) {
@@ -172,6 +170,7 @@ export function AnimatedBackground() {
             for (const j of list) {
               if (j <= i) continue;
               const b = particles[j];
+              if (!b) continue;
               const dx = a.x - b.x;
               const dy = a.y - b.y;
               const d2 = dx * dx + dy * dy;

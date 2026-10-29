@@ -183,7 +183,7 @@ function PinnedHero({
             </h2>
             <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
               {SCENE3_CARDS.map((card, i) => (
-                <Scene3Card key={card.label} card={card} progress={progress} base={cardBases[i]} />
+                <Scene3Card key={card.label} card={card} progress={progress} base={cardBases[i] ?? 0.55} />
               ))}
             </div>
           </div>
