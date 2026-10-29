@@ -29,8 +29,8 @@ const PILLARS = [
 export function About() {
   return (
     <section id="about" className="relative py-24 sm:py-32">
-      {/* Dark teal feature band with soft depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-teal via-teal to-teal-deep" aria-hidden="true" />
+      {/* Sits directly on the global ambient background with a light teal wash */}
+      <div className="absolute inset-0 bg-teal/40" aria-hidden="true" />
       <div className="grid-overlay absolute inset-0" aria-hidden="true" />
       <div
         aria-hidden="true"
