@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Navbar } from "@/components/Navbar";
 import { ScrollHero } from "@/components/ScrollHero";
@@ -43,22 +43,24 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="relative">
+    <div className="relative min-h-screen bg-[#073638] text-white">
       <AnimatedBackground />
       <Navbar />
       <main>
         <ScrollHero />
-        <div className="relative bg-cream">
+        <div className="relative bg-[#F6F8F5] text-[#0B3032]">
           <Services />
-          <div className="bg-card">
+          <div className="border-y border-[#D8E2DF] bg-white">
             <Pricing />
           </div>
           <Portfolio />
         </div>
         <About />
-        <div className="relative bg-cream">
+        <div className="relative bg-[#F6F8F5] text-[#0B3032]">
           <Process />
-          <Contact />
+          <div className="border-t border-[#D8E2DF] bg-white">
+            <Contact />
+          </div>
         </div>
         <FinalCta />
         <Footer />

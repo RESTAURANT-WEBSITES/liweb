@@ -1,31 +1,6 @@
-@import "tailwindcss" source(none);
-@source "../src";
-@import "tw-animate-css";
+﻿@import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
-
-/*
- * LIWEB Solutions design system.
- *
- * Brand palette (from the pricing reference):
- *   deep teal-green #073638 — hero, nav, footer, feature sections
- *   signature yellow #FFDF59 — CTAs, highlights, accents
- *   dark teal #0B3032 — headings/body on light backgrounds
- *   light background #F6F8F5
- *   secondary text #536461
- *
- * All tokens use oklch. Register new colors in @theme inline.
- */
-
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -46,71 +21,73 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* LIWEB brand tokens */
-  --color-teal: var(--teal);
-  --color-teal-dark: var(--teal-dark);
-  --color-teal-deep: var(--teal-deep);
-  --color-sun: var(--sun);
-  --color-sun-soft: var(--sun-soft);
-  --color-cream: var(--cream);
-  --color-ink-muted: var(--ink-muted);
+  /* LIWEB exact brand tokens */
+  --color-teal: #073638;
+  --color-teal-dark: #0B3032;
+  --color-teal-deep: #052527;
+  --color-sun: #FFDF59;
+  --color-sun-soft: rgba(255, 223, 89, 0.16);
+  --color-cream: #F6F8F5;
+  --color-secondary-text: #AFC2BE;
+  --color-ink-muted: #536461;
 
-  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.977 0.004 134.8);
-  --foreground: oklch(0.285 0.041 200.2);
-  --card: oklch(1 0 89.9);
-  --card-foreground: oklch(0.285 0.041 200.2);
-  --popover: oklch(1 0 89.9);
-  --popover-foreground: oklch(0.285 0.041 200.2);
-  --primary: oklch(0.906 0.153 95.7);
-  --primary-foreground: oklch(0.285 0.041 200.2);
-  --secondary: oklch(0.304 0.048 199.3);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.955 0.008 190);
-  --muted-foreground: oklch(0.488 0.021 183.6);
-  --accent: oklch(0.955 0.008 190);
-  --accent-foreground: oklch(0.285 0.041 200.2);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.912 0.012 190);
-  --input: oklch(0.912 0.012 190);
-  --ring: oklch(0.906 0.153 95.7);
+  --background: #F6F8F5;
+  --foreground: #0B3032;
+  --card: #FFFFFF;
+  --card-foreground: #0B3032;
+  --popover: #FFFFFF;
+  --popover-foreground: #0B3032;
+  --primary: #FFDF59;
+  --primary-foreground: #0B3032;
+  --secondary: #073638;
+  --secondary-foreground: #F6F8F5;
+  --muted: #EBF0ED;
+  --muted-foreground: #536461;
+  --accent: #EBF0ED;
+  --accent-foreground: #0B3032;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: #D8E2DF;
+  --input: #D8E2DF;
+  --ring: #FFDF59;
 
   /* LIWEB brand colors */
-  --teal: oklch(0.304 0.048 199.3); /* #073638 */
-  --teal-dark: oklch(0.285 0.041 200.2); /* #0B3032 */
-  --teal-deep: oklch(0.26 0.038 200); /* darker teal for depth layers */
-  --sun: oklch(0.906 0.153 95.7); /* #FFDF59 */
-  --sun-soft: oklch(0.955 0.075 100); /* washed yellow for subtle washes */
-  --cream: oklch(0.977 0.004 134.8); /* #F6F8F5 */
-  --ink-muted: oklch(0.488 0.021 183.6); /* #536461 */
+  --teal: #073638;
+  --teal-dark: #0B3032;
+  --teal-deep: #052527;
+  --sun: #FFDF59;
+  --sun-soft: rgba(255, 223, 89, 0.16);
+  --cream: #F6F8F5;
+  --text-secondary: #AFC2BE;
+  --ink-muted: #536461;
 }
 
 .dark {
-  --background: oklch(0.26 0.038 200);
-  --foreground: oklch(0.977 0.004 134.8);
-  --card: oklch(0.285 0.041 200.2);
-  --card-foreground: oklch(0.977 0.004 134.8);
-  --popover: oklch(0.285 0.041 200.2);
-  --popover-foreground: oklch(0.977 0.004 134.8);
-  --primary: oklch(0.906 0.153 95.7);
-  --primary-foreground: oklch(0.285 0.041 200.2);
-  --secondary: oklch(0.304 0.048 199.3);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.32 0.04 200);
-  --muted-foreground: oklch(0.7 0.03 190);
-  --accent: oklch(0.32 0.04 200);
-  --accent-foreground: oklch(0.977 0.004 134.8);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.906 0.153 95.7);
+  --background: #073638;
+  --foreground: #F6F8F5;
+  --card: #0B3032;
+  --card-foreground: #F6F8F5;
+  --popover: #0B3032;
+  --popover-foreground: #F6F8F5;
+  --primary: #FFDF59;
+  --primary-foreground: #0B3032;
+  --secondary: #073638;
+  --secondary-foreground: #F6F8F5;
+  --muted: #0D3E40;
+  --muted-foreground: #AFC2BE;
+  --accent: #0D3E40;
+  --accent-foreground: #F6F8F5;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #FFDF59;
 }
 
 @layer base {
@@ -120,14 +97,17 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 5.5rem;
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    background-color: var(--color-teal);
+    color: #FFFFFF;
     font-family: var(--font-body);
+    font-weight: 400;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1,
@@ -135,7 +115,7 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
   }
 
   ::selection {
@@ -149,77 +129,88 @@
   }
 }
 
-/* ---------- LIWEB custom utilities ---------- */
+/* ---------- LIWEB refined typography system ---------- */
 
-/* Display headline sizing with fluid clamp */
-@utility headline-xl {
+/* Desktop Hero Heading: 64-76px clamp, line-height 1.05 - 1.12 */
+@utility headline-hero {
   font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(2.4rem, 6.2vw, 4.8rem);
-  line-height: 1.04;
-  letter-spacing: -0.03em;
+  font-weight: 750;
+  font-size: clamp(2.35rem, 4.2vw + 0.6rem, 4.45rem);
+  line-height: 1.08;
+  letter-spacing: -0.028em;
 }
 
+@utility headline-xl {
+  font-family: var(--font-display);
+  font-weight: 750;
+  font-size: clamp(2.35rem, 4.2vw + 0.6rem, 4.45rem);
+  line-height: 1.08;
+  letter-spacing: -0.028em;
+}
+
+/* Section Headings: 40-48px */
 @utility headline-lg {
   font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(1.9rem, 4.2vw, 3.2rem);
-  line-height: 1.08;
+  font-weight: 700;
+  font-size: clamp(1.85rem, 2.8vw + 0.5rem, 2.85rem);
+  line-height: 1.12;
   letter-spacing: -0.02em;
 }
 
+/* Subheadings / Card Titles: 22-28px */
 @utility headline-md {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
-  line-height: 1.15;
+  font-size: clamp(1.3rem, 1.6vw + 0.3rem, 1.75rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
 }
 
-/* Text highlight — yellow marker treatment */
+/* Text highlight — signature yellow */
 @utility text-sun-highlight {
   color: var(--sun);
 }
 
-/* Thin yellow accent rule used above section labels */
+/* Thin yellow accent rule */
 @utility sun-rule {
   display: block;
-  width: 3.25rem;
-  height: 0.25rem;
+  width: 2.75rem;
+  height: 0.2rem;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--sun), color-mix(in oklab, var(--sun) 55%, transparent));
+  background: linear-gradient(90deg, var(--sun), rgba(255, 223, 89, 0.4));
 }
 
 /* Faint blueprint grid overlay for dark sections */
 @utility grid-overlay {
   background-image:
-    linear-gradient(to right, oklch(1 0 0 / 4%) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(1 0 0 / 4%) 1px, transparent 1px);
-  background-size: 56px 56px;
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
   pointer-events: none;
 }
 
 @utility grid-overlay-light {
   background-image:
-    linear-gradient(to right, oklch(0.304 0.048 199.3 / 5%) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(0.304 0.048 199.3 / 5%) 1px, transparent 1px);
-  background-size: 56px 56px;
+    linear-gradient(to right, rgba(7, 54, 56, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(7, 54, 56, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
   pointer-events: none;
 }
 
-/* Elevated card shadow tinted with brand teal */
+/* Refined card shadows */
 @utility shadow-card {
   box-shadow:
-    0 1px 2px oklch(0.304 0.048 199.3 / 6%),
-    0 16px 40px -12px oklch(0.304 0.048 199.3 / 18%);
+    0 1px 3px rgba(7, 54, 56, 0.05),
+    0 14px 32px -10px rgba(7, 54, 56, 0.12);
 }
 
 @utility shadow-card-hover {
   box-shadow:
-    0 2px 4px oklch(0.304 0.048 199.3 / 8%),
-    0 28px 60px -16px oklch(0.304 0.048 199.3 / 30%);
+    0 4px 8px rgba(7, 54, 56, 0.08),
+    0 24px 48px -12px rgba(7, 54, 56, 0.2);
 }
 
-/* Button treatments */
+/* Standardized button treatments with 10-14px corners (rounded-xl / 12px) */
 @utility btn-sun {
   display: inline-flex;
   align-items: center;
@@ -227,15 +218,17 @@
   gap: 0.5rem;
   background: var(--sun);
   color: var(--teal-dark);
-  font-weight: 700;
-  border-radius: 999px;
-  padding: 0.8rem 1.6rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  box-shadow: 0 10px 30px -10px oklch(0.906 0.153 95.7 / 55%);
+  font-size: 0.9375rem;
+  font-weight: 650;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
+  box-shadow: 0 8px 24px -6px rgba(255, 223, 89, 0.4);
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 36px -10px oklch(0.906 0.153 95.7 / 70%);
+    box-shadow: 0 14px 28px -6px rgba(255, 223, 89, 0.55);
+    background: #ffe36b;
   }
 
   &:active {
@@ -248,17 +241,25 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border: 1.5px solid oklch(1 0 0 / 35%);
-  color: oklch(1 0 0 / 92%);
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  color: #FFFFFF;
+  font-size: 0.9375rem;
   font-weight: 600;
-  border-radius: 999px;
-  padding: 0.8rem 1.6rem;
-  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(4px);
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 
   &:hover {
     border-color: var(--sun);
     color: var(--sun);
-    background: oklch(1 0 0 / 6%);
+    background: rgba(255, 223, 89, 0.08);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }
 
@@ -268,56 +269,63 @@
   justify-content: center;
   gap: 0.5rem;
   background: var(--teal);
-  color: oklch(1 0 0 / 95%);
-  font-weight: 700;
-  border-radius: 999px;
-  padding: 0.8rem 1.6rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #FFFFFF;
+  font-size: 0.9375rem;
+  font-weight: 650;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
+  box-shadow: 0 8px 24px -6px rgba(7, 54, 56, 0.35);
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 14px 34px -12px oklch(0.304 0.048 199.3 / 60%);
+    background: var(--teal-dark);
+    box-shadow: 0 14px 30px -8px rgba(7, 54, 56, 0.5);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }
 
 /* Marquee-style outlined display text */
 @utility text-outline-sun {
   color: transparent;
-  -webkit-text-stroke: 1.5px oklch(0.906 0.153 95.7 / 60%);
+  -webkit-text-stroke: 1.5px rgba(255, 223, 89, 0.6);
 }
 
-/* Slow ambient float for decorative shapes */
+/* Ambient animations */
 @utility float-slow {
-  animation: liweb-float 9s ease-in-out infinite;
+  animation: liweb-float 8s ease-in-out infinite;
 }
 
 @utility float-slower {
-  animation: liweb-float 14s ease-in-out infinite reverse;
+  animation: liweb-float 12s ease-in-out infinite reverse;
 }
 
 @keyframes liweb-float {
   0%,
   100% {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
   }
   50% {
-    transform: translateY(10px);
+    transform: translateY(8px);
   }
 }
 
 @utility pulse-soft {
-  animation: liweb-pulse 3.2s ease-in-out infinite;
+  animation: liweb-pulse 3.5s ease-in-out infinite;
 }
 
 @keyframes liweb-pulse {
   0%,
   100% {
-    opacity: 0.55;
+    opacity: 0.6;
     transform: scale(1);
   }
   50% {
-    opacity: 1;
-    transform: scale(1.08);
+    opacity: 0.95;
+    transform: scale(1.04);
   }
 }
 

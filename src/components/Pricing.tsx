@@ -1,4 +1,4 @@
-import { ArrowRight, Check, MessageCircle } from "lucide-react";
+﻿import { ArrowRight, Check, MessageCircle } from "lucide-react";
 import { Reveal, SectionHeading } from "@/components/Shared";
 import { PLANS, whatsappUrl } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -11,80 +11,94 @@ export function selectPackage(planName: string) {
 
 export function Pricing() {
   return (
-    <section id="pricing" className="relative py-24 sm:py-32">
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="pricing" className="relative py-20 sm:py-24 lg:py-28">
+      <div className="relative mx-auto max-w-[1280px] px-6 sm:px-8">
         <SectionHeading
+          tone="dark"
           align="center"
           kicker="Pricing"
           title={
             <>
               Transparent packages,{" "}
-              <span className="bg-teal px-2 text-sun">honest pricing.</span>
+              <span className="bg-[#073638] px-2 text-[#FFDF59]">honest pricing.</span>
             </>
           }
           description="Pick a package, or pay monthly — whatever gets your business online fastest."
         />
 
-        <div className="mt-16 grid items-stretch gap-8 md:grid-cols-3 lg:gap-6">
+        <div className="mt-14 grid items-stretch gap-8 md:grid-cols-3 lg:gap-6">
           {PLANS.map((plan, i) => (
             <Reveal key={plan.id} delay={i * 0.1} className="h-full">
               <div
                 className={cn(
-                  "relative flex h-full flex-col rounded-3xl p-8 pb-14 transition-transform duration-300 hover:-translate-y-2",
+                  "relative flex h-full flex-col justify-between rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1.5",
                   plan.featured
-                    ? "bg-sun text-teal-dark shadow-2xl md:-my-4 md:shadow-[0_30px_70px_-20px_oklch(0.906_0.153_95.7/45%)]"
-                    : "bg-card text-teal-dark shadow-card"
+                    ? "bg-[#FFDF59] text-[#0B3032] shadow-2xl ring-2 ring-[#073638]/20 md:-my-2"
+                    : "border border-[#D8E2DF] bg-white text-[#0B3032] shadow-card hover:shadow-card-hover"
                 )}
               >
-                {plan.featured && (
-                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-teal px-4 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-sun shadow-lg">
-                    Most popular
-                  </span>
-                )}
+                <div>
+                  {/* Featured Pill */}
+                  {plan.featured && (
+                    <div className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-[#073638] px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#FFDF59]">
+                      <span className="size-1.5 rounded-full bg-[#FFDF59]" />
+                      Most Popular
+                    </div>
+                  )}
 
-                <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-teal/80">
-                  {plan.name}
-                </h3>
-                <p className="mt-4 font-display text-5xl font-extrabold tracking-tight">
-                  {plan.price}
-                </p>
+                  <h3 className="text-xs font-bold uppercase tracking-[0.25em] text-[#073638]/80">
+                    {plan.name}
+                  </h3>
 
-                {/* OR separator between one-time price and monthly option */}
-                <div className="mt-5 flex items-center gap-3" aria-hidden="true">
-                  <span className={cn("h-px flex-1", plan.featured ? "bg-teal/20" : "bg-teal/15")} />
-                  <span
+                  {/* Price */}
+                  <div className="mt-3 flex items-baseline gap-1">
+                    <span className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
+                      {plan.price}
+                    </span>
+                    <span className="text-xs font-semibold text-[#536461]">
+                      one-time
+                    </span>
+                  </div>
+
+                  {/* Monthly installment banner */}
+                  <div
                     className={cn(
-                      "grid size-9 place-items-center rounded-full text-[0.65rem] font-extrabold",
-                      plan.featured ? "bg-teal text-sun" : "bg-teal text-sun"
+                      "mt-4 rounded-lg px-3.5 py-2 text-center text-xs font-bold",
+                      plan.featured
+                        ? "bg-[#073638] text-[#FFDF59]"
+                        : "bg-[#073638]/5 text-[#073638]"
                     )}
                   >
-                    OR
-                  </span>
-                  <span className={cn("h-px flex-1", plan.featured ? "bg-teal/20" : "bg-teal/15")} />
+                    {plan.monthly}
+                  </div>
+
+                  {/* Feature list */}
+                  <ul className="mt-6 space-y-3 border-t border-black/10 pt-6">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3 text-sm font-medium">
+                        <span
+                          className={cn(
+                            "mt-0.5 grid size-4.5 shrink-0 place-items-center rounded-full",
+                            plan.featured
+                              ? "bg-[#073638] text-[#FFDF59]"
+                              : "bg-[#FFDF59] text-[#0B3032]"
+                          )}
+                        >
+                          <Check className="size-3" strokeWidth={3} />
+                        </span>
+                        <span className="leading-snug text-[#0B3032]/90">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <ul className="mt-7 flex-1 space-y-3.5">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3 text-sm font-medium">
-                      <span
-                        className={cn(
-                          "mt-0.5 grid size-5 shrink-0 place-items-center rounded-full",
-                          plan.featured ? "bg-teal text-sun" : "bg-sun text-teal-dark"
-                        )}
-                      >
-                        <Check className="size-3" strokeWidth={3} />
-                      </span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-8 flex gap-2">
+                {/* Card CTA Actions */}
+                <div className="mt-8 flex items-center gap-2 pt-4">
                   <a
                     href="#contact"
                     onClick={() => selectPackage(plan.name)}
                     className={cn(
-                      "flex-1 text-center text-sm",
+                      "flex-1 text-center text-sm font-semibold",
                       plan.featured ? "btn-teal" : "btn-sun"
                     )}
                   >
@@ -99,36 +113,26 @@ export function Pricing() {
                     rel="noreferrer"
                     aria-label={`Ask about the ${plan.name} package on WhatsApp`}
                     className={cn(
-                      "grid size-11 shrink-0 place-items-center self-stretch rounded-full border transition-colors",
+                      "grid size-11 shrink-0 place-items-center rounded-xl border transition-colors",
                       plan.featured
-                        ? "border-teal/40 text-teal hover:bg-teal hover:text-sun"
-                        : "border-teal/25 text-teal hover:bg-teal hover:text-sun"
+                        ? "border-[#073638]/40 text-[#073638] hover:bg-[#073638] hover:text-[#FFDF59]"
+                        : "border-[#D8E2DF] text-[#073638] hover:bg-[#073638] hover:text-[#FFDF59]"
                     )}
                   >
-                    <MessageCircle className="size-5" />
+                    <MessageCircle className="size-4.5" />
                   </a>
                 </div>
-
-                {/* Monthly payment pill overlapping the card bottom */}
-                <span
-                  className={cn(
-                    "absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-5 py-2 text-xs font-bold shadow-lg",
-                    plan.featured ? "bg-teal text-sun" : "bg-teal text-sun"
-                  )}
-                >
-                  {plan.monthly}
-                </span>
               </div>
             </Reveal>
           ))}
         </div>
 
-        <Reveal className="mt-24 text-center">
-          <h3 className="font-display text-2xl font-extrabold text-teal-dark sm:text-3xl">
+        <Reveal className="mt-16 text-center">
+          <h3 className="font-display text-2xl font-bold text-[#0B3032] sm:text-3xl">
             Pick your plan &amp;{" "}
-            <span className="bg-sun px-2">get started today!</span>
+            <span className="bg-[#FFDF59] px-2 text-[#0B3032]">get started today!</span>
           </h3>
-          <p className="mt-3 text-sm text-ink-muted sm:text-base">
+          <p className="mt-3 text-[15px] text-[#536461] sm:text-base">
             One-time or monthly — every package includes a free domain and
             hosting. Tell us about your project and we&apos;ll take it from there.
           </p>

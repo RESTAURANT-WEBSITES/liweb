@@ -1,4 +1,4 @@
-import { useRef } from "react";
+﻿import { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import { ArrowRight, Palette, Rocket, Gauge, HeartHandshake } from "lucide-react";
 import { Reveal, SectionHeading } from "@/components/Shared";
@@ -28,31 +28,30 @@ const PILLARS = [
 
 export function About() {
   return (
-    <section id="about" className="relative py-24 sm:py-32">
-      {/* Sits directly on the global ambient background with a light teal wash */}
-      <div className="absolute inset-0 bg-teal/40" aria-hidden="true" />
+    <section id="about" className="relative py-20 sm:py-24 lg:py-28">
       <div className="grid-overlay absolute inset-0" aria-hidden="true" />
       <div
         aria-hidden="true"
-        className="float-slower absolute right-0 top-16 size-72 rounded-full bg-sun/5 blur-2xl"
+        className="float-slower absolute right-4 top-16 size-72 rounded-full bg-sun/5 blur-3xl pointer-events-none"
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
+      <div className="relative mx-auto max-w-[1280px] px-6 sm:px-8">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-14 items-center">
+          {/* Left Column: Editorial intro (6 cols) */}
+          <div className="lg:col-span-6">
             <SectionHeading
               tone="light"
               kicker="About us"
               title={
                 <>
                   We turn ideas into{" "}
-                  <span className="text-sun-highlight">digital experiences.</span>
+                  <span className="text-sun">digital experiences.</span>
                 </>
               }
               description="LIWEB Solutions combines design, technology, usability and business objectives to create websites that work — not just websites that exist."
             />
             <Reveal delay={0.15}>
-              <div className="mt-8 space-y-4 text-base leading-relaxed text-white/70">
+              <div className="mt-6 space-y-4 text-[16px] leading-relaxed text-[#AFC2BE]">
                 <p>
                   A website is often the first conversation a customer has with
                   your business. We make sure it says the right things, looks
@@ -64,27 +63,31 @@ export function About() {
                   build with care, and measure what matters.
                 </p>
               </div>
-              <a href="#contact" className="btn-sun mt-8">
-                Discuss your project
-                <ArrowRight className="size-4" />
-              </a>
+              <div className="mt-8">
+                <a href="#contact" className="btn-sun">
+                  Discuss your project
+                  <ArrowRight className="size-4" />
+                </a>
+              </div>
             </Reveal>
           </div>
 
-          {/* Asymmetric pillar grid */}
-          <div className="grid gap-4 sm:grid-cols-2">
+          {/* Right Column: 4 Pillars Grid (6 cols) */}
+          <div className="grid gap-4 sm:grid-cols-2 lg:col-span-6">
             {PILLARS.map((pillar, i) => (
               <Reveal
                 key={pillar.title}
                 delay={i * 0.08}
-                className={i % 2 === 1 ? "sm:mt-10" : ""}
+                className={i % 2 === 1 ? "sm:mt-8" : ""}
               >
-                <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-colors hover:border-sun/40">
-                  <pillar.icon className="size-7 text-sun" />
-                  <h3 className="mt-4 font-display text-lg font-bold text-white">
+                <div className="h-full rounded-xl border border-white/15 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:border-sun/40 hover:-translate-y-1">
+                  <span className="grid size-11 place-items-center rounded-lg bg-sun/15 text-sun">
+                    <pillar.icon className="size-5 text-sun" />
+                  </span>
+                  <h3 className="mt-4 font-display text-[1.125rem] font-bold text-white">
                     {pillar.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/65">
+                  <p className="mt-2 text-sm leading-relaxed text-[#AFC2BE]">
                     {pillar.text}
                   </p>
                 </div>
@@ -120,7 +123,7 @@ const STEPS = [
   },
 ];
 
-/** Scroll-linked four-step process timeline with a yellow progress spine. */
+/** Clean timeline with consistent numbered steps and restrained yellow progress indicators. */
 export function Process() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -131,24 +134,26 @@ export function Process() {
   const height = useTransform(progress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="process" className="relative py-24 sm:py-32">
-      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <section id="process" className="relative py-20 sm:py-24 lg:py-28">
+      <div className="relative mx-auto max-w-4xl px-6 sm:px-8">
         <SectionHeading
+          tone="dark"
           align="center"
           kicker="How we work"
           title={
             <>
               Four steps from idea to{" "}
-              <span className="bg-teal px-2 text-sun">launch.</span>
+              <span className="bg-[#073638] px-2 text-[#FFDF59]">launch.</span>
             </>
           }
+          description="A structured, collaborative approach to delivering your digital presence on time."
         />
 
-        <div ref={ref} className="relative mt-16">
+        <div ref={ref} className="relative mt-14">
           {/* Spine */}
           <div
             aria-hidden="true"
-            className="absolute left-6 top-0 h-full w-px bg-teal/15 sm:left-1/2"
+            className="absolute left-6 top-0 h-full w-px bg-[#073638]/15 sm:left-1/2"
           />
           <motion.div
             aria-hidden="true"
@@ -156,15 +161,15 @@ export function Process() {
             className="absolute left-6 top-0 w-px bg-sun sm:left-1/2"
           />
 
-          <ol className="space-y-12">
+          <ol className="space-y-10">
             {STEPS.map((step, i) => (
               <li key={step.number} className="relative">
                 {/* Node */}
                 <span
                   aria-hidden="true"
-                  className="absolute left-6 top-2 z-10 grid size-5 -translate-x-1/2 place-items-center rounded-full border-2 border-sun bg-card sm:left-1/2"
+                  className="absolute left-6 top-4 z-10 grid size-5 -translate-x-1/2 place-items-center rounded-full border-2 border-[#073638] bg-[#FFDF59] sm:left-1/2 shadow-sm"
                 >
-                  <span className="size-1.5 rounded-full bg-sun" />
+                  <span className="size-1 rounded-full bg-[#073638]" />
                 </span>
                 <Reveal
                   delay={0.05}
@@ -172,12 +177,12 @@ export function Process() {
                     i % 2 === 0 ? "sm:mr-auto sm:text-right" : "sm:ml-auto"
                   }`}
                 >
-                  <div className="rounded-2xl bg-card p-6 shadow-card transition-shadow hover:shadow-card-hover">
-                    <span className="font-display text-3xl font-extrabold text-sun-highlight">
+                  <div className="rounded-xl border border-[#D8E2DF] bg-white p-6 shadow-card transition-all duration-300 hover:border-[#073638]/30 hover:shadow-card-hover">
+                    <span className="font-display text-2xl font-extrabold text-[#073638]">
                       {step.number}
                     </span>
-                    <h3 className="headline-md mt-1 text-teal-dark">{step.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                    <h3 className="headline-md mt-1 text-lg font-bold text-[#0B3032]">{step.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[#536461]">
                       {step.text}
                     </p>
                   </div>
