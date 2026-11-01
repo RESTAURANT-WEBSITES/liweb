@@ -91,16 +91,9 @@ function PinnedHero() {
           <div className="mx-auto grid w-full max-w-[1280px] items-center gap-12 pt-20 lg:grid-cols-12 lg:gap-8 lg:pt-0">
             {/* Left Column (55% width): Typography & CTAs */}
             <div className="lg:col-span-7">
-              {/* Intro label */}
-              <div className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 backdrop-blur-sm">
-                <span className="size-2 rounded-full bg-sun animate-pulse" />
-                <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#AFC2BE]">
-                  DIGITAL EXPERIENCES. BUILT FOR GROWTH.
-                </span>
-              </div>
 
               {/* Main Hero Headline */}
-              <h1 className="headline-hero mt-5 max-w-[620px] text-white">
+              <h1 className="headline-hero max-w-[620px] text-white">
                 We Build <span className="text-sun">Digital Experiences</span>{" "}
                 That Move Businesses <span className="text-sun">Forward.</span>
               </h1>
@@ -316,14 +309,8 @@ function StaticHero() {
       <div className="grid-overlay absolute inset-0" aria-hidden="true" />
       <div className="mx-auto grid w-full max-w-[1280px] items-center gap-12 px-6 sm:px-8 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-7">
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 backdrop-blur-sm">
-            <span className="size-2 rounded-full bg-sun" />
-            <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#AFC2BE]">
-              DIGITAL EXPERIENCES. BUILT FOR GROWTH.
-            </span>
-          </div>
 
-          <h1 className="headline-hero mt-5 max-w-[620px] text-white">
+          <h1 className="headline-hero max-w-[620px] text-white">
             We Build <span className="text-sun">Digital Experiences</span>{" "}
             That Move Businesses <span className="text-sun">Forward.</span>
           </h1>
